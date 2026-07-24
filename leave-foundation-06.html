@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEAVE · Build the Builder · Workbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#0A4D2E;--copper:#C17A36;--cream:#F6F3EC;--ink:#22302a;--line:#d8d2c4;--white:#fffdf8;--lcop:#E3A766;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Montserrat',-apple-system,sans-serif;font-size:16px;line-height:1.6;}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px 70px;}
+.bar{position:sticky;top:0;z-index:10;background:var(--cream);display:flex;justify-content:flex-end;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);}
+.bar .saved{color:var(--green);font-size:.78rem;opacity:0;transition:opacity .3s;margin-right:auto;}
+.bar button{font-family:inherit;font-size:.78rem;font-weight:600;border:1px solid var(--copper);color:var(--green);background:transparent;border-radius:30px;padding:6px 16px;cursor:pointer;letter-spacing:.03em;}
+.bar #printBtn{background:var(--green);color:var(--cream);border-color:var(--green);}
+.masthead{text-align:center;padding:26px 0 4px;}
+.masthead img{max-width:140px;width:32%;height:auto;display:block;margin:0 auto;}
+.eyebrow{text-transform:uppercase;letter-spacing:.26em;color:var(--copper);font-weight:700;font-size:.66rem;margin-top:12px;}
+.title{font-family:'Playfair Display',serif;font-weight:800;color:var(--green);font-size:2.35rem;margin:6px 0 0;}
+.wbtag{text-transform:uppercase;letter-spacing:.3em;color:var(--green);font-size:.64rem;font-weight:600;margin-top:10px;border-top:2px solid var(--copper);display:inline-block;padding-top:8px;}
+h2{font-family:'Playfair Display',serif;color:var(--green);font-size:1.32rem;font-weight:700;margin:34px 0 2px;}
+.tool{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--copper);border-radius:0 10px 10px 0;padding:12px 16px;margin:14px 0 6px;font-style:italic;color:#574f3f;font-size:.95rem;}
+.instr{color:#6f6a5c;font-size:.92rem;margin:4px 0 10px;}
+input.fld{width:100%;border:none;border-bottom:2px solid var(--line);background:transparent;font-family:inherit;font-size:1rem;color:var(--ink);padding:7px 2px;}
+textarea.fld{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--white);font-family:inherit;font-size:1rem;color:var(--ink);padding:10px 12px;min-height:3em;resize:vertical;overflow:hidden;}
+.fld:focus{outline:none;border-color:var(--copper);}
+table{width:100%;border-collapse:collapse;margin:10px 0;}
+th{background:var(--green);color:var(--cream);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:9px 10px;font-weight:700;}
+td{border:1px solid var(--line);padding:5px 9px;vertical-align:middle;}
+td.sig{font-weight:700;color:var(--green);width:30%;}
+td.sig small{display:block;font-weight:500;color:#6f6a5c;font-size:.74rem;letter-spacing:0;text-transform:none;}
+td input.fld{border:none;padding:8px 2px;}
+.seg{display:inline-flex;gap:4px;flex-wrap:wrap;}
+.seg button{font-family:inherit;font-weight:700;font-size:.72rem;border:1px solid var(--line);background:var(--white);color:#6f6a5c;padding:0 11px;height:30px;border-radius:6px;cursor:pointer;}
+.seg button.active{background:var(--green);color:var(--cream);border-color:var(--green);}
+.seg.lane button[data-v="Decide"].active{background:#2E8B57;border-color:#2E8B57;}
+.seg.lane button[data-v="Tell"].active{background:#C9A227;border-color:#C9A227;}
+.seg.lane button[data-v="Ask"].active{background:#B5462F;border-color:#B5462F;}
+.rep{background:#f1ede2;border-left:5px solid var(--green);border-radius:0 10px 10px 0;padding:16px 18px;margin:26px 0 0;}
+.rep .lab{text-transform:uppercase;letter-spacing:.18em;color:var(--copper);font-weight:700;font-size:.66rem;}
+.rep p{margin:6px 0 0;}
+.foot{text-align:center;color:var(--copper);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;margin-top:42px;border-top:1px solid var(--line);padding-top:18px;}
+@media print{.bar{display:none;}body{background:#fff;}th,.seg button.active{-webkit-print-color-adjust:exact;print-color-adjust:exact;}textarea.fld{border-color:#ccc;}}
+
+/* --- Learning platform additions --- */
+.platnav{position:sticky;top:0;z-index:20;background:var(--green);display:flex;align-items:center;gap:14px;padding:10px 24px;margin:0 -24px;border-bottom:3px solid var(--copper);}
+.platnav a{color:var(--cream);text-decoration:none;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;opacity:.9;}
+.platnav a:hover{opacity:1;color:var(--lcop);}
+.platnav .hub{margin-right:auto;}
+.platnav .disabled{opacity:.35;pointer-events:none;}
+.videohero{margin:22px 0 8px;}
+.videohero .vlabel{text-transform:uppercase;letter-spacing:.22em;color:var(--copper);font-weight:700;font-size:.66rem;margin-bottom:10px;}
+.vframe{position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#0c2a1c;border:1px solid var(--line);box-shadow:0 10px 30px rgba(10,77,46,.12);}
+.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vplaceholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--cream);padding:24px;}
+.vplaceholder .play{width:70px;height:70px;border-radius:50%;border:3px solid var(--copper);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.vplaceholder .play:after{content:"";border-left:20px solid var(--copper);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:5px;}
+.vplaceholder b{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;}
+.vplaceholder small{opacity:.75;font-size:.78rem;margin-top:6px;max-width:420px;}
+.wbdivider{text-align:center;margin:34px 0 0;color:var(--copper);font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;}
+.wbdivider span{display:inline-block;border-top:2px solid var(--copper);padding-top:8px;}
+@media print{.platnav,.videohero{display:none;}}
+
+</style></head>
+<body data-key="LEAVE-F6"><div class="wrap"><div class="platnav"><a class="home2" href="index.html">&#8962; LTL Hub</a><a class="hub" href="leave-landing.html">&#9632; LEAVE Home</a><span style="color:var(--lcop);font-size:.72rem;font-weight:700;letter-spacing:.08em;">6 / 7</span><a href="leave-foundation-05.html">&larr; Prev</a><a href="leave-foundation-07.html">Next &rarr;</a></div>
+<div class="bar"><span class="saved" id="saved">Saved &#10003;</span><button id="printBtn">Print / Save PDF</button><button id="resetBtn">Reset</button></div>
+<div class="masthead"><img src="lead-to-leave-logo.png" alt="Lead to Leave"><div class="eyebrow">Stage 3 · LEAVE — Foundation 06</div><div class="title">Build the Builder</div><div class="wbtag">Foundation 6</div></div><div class="videohero"><div class="vlabel">Watch first</div><div class="vframe">
+  
+  <iframe src="https://www.loom.com/embed/f9775341f1334d0bbcd7b2badaf09570" title="Build the Builder video" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div></div><div class="wbdivider"><span>Then work the pages below</span></div>
+<div class="tool">You haven't transferred leadership until it <b>echoes</b> — until the person you built can grow someone the way you grew them. You're the stone; make the first ring, then make sure it can make the second. Hand them a <em>person</em>, not a task, and coach the coach. Expect the <b>101st strike</b> — it lands later than feels reasonable. Keep striking.</div>
+
+<h2>1 · Pick your first ring</h2><p class="instr">The person you've developed who is most ready to start developing someone else — your strongest, most trusted, with influence to spare.</p><input class="fld" data-id="ring1">
+<h2>2 · Find their second ring</h2><p class="instr">Who could that person grow? Someone they already have a relationship with. That's the echo you'll start.</p><input class="fld" data-id="ring2">
+<h2>3 · Name the handoff</h2><p class="instr">One piece of development you currently do for the second-ring person that you could hand to your first ring instead — a coaching conversation, a skill, a lane to pass.</p><textarea class="fld" data-id="handoff"></textarea>
+<h2>4 · Coach the coach</h2><p class="instr">The question you'll ask your first ring to start them thinking like a developer — e.g. "What's the next stretch for [their person], and how do you want to grow them into it?"</p><textarea class="fld" data-id="question"></textarea>
+<h2>5 · Set the patience</h2><p class="instr">One sentence to your future self about the 101st strike — that this takes more reps than feels reasonable, and you'll keep coaching anyway. You'll want it around week three.</p><textarea class="fld" data-id="patience"></textarea>
+<h2>Reflect</h2><p class="instr">If your best leader left tomorrow, would the way they develop people leave with them — or already be living in someone else?</p><textarea class="fld" data-id="ref1"></textarea>
+<p class="instr">Are you secretly holding onto being the only one who develops people — because being the one everyone grows under is part of how you matter here?</p><textarea class="fld" data-id="ref2"></textarea>
+<div class="rep"><div class="lab">Your rep</div><p>Start one echo this week. Sit down with your first ring, hand them their second ring, and ask the coaching question you wrote. Then write how they responded — did they step toward it, or away?</p><textarea class="fld" data-id="repnote" style="margin-top:10px;"></textarea></div>
+<div class="foot">Lead to Leave · Built to thrive beyond you.</div>
+</div><script>
+const KEY='ltl-wb-'+document.body.dataset.key;
+function autosize(t){t.style.height='auto';t.style.height=(t.scrollHeight+2)+'px';}
+function collect(){const s={};
+ document.querySelectorAll('input.fld,textarea.fld').forEach(e=>s['f_'+e.dataset.id]=e.value);
+ document.querySelectorAll('.seg').forEach(e=>s['s_'+e.dataset.id]=e.dataset.val||'');
+ return s;}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(collect()));}catch(e){}flash();}
+function restore(){let r={};try{r=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+ document.querySelectorAll('input.fld,textarea.fld').forEach(e=>{if(r['f_'+e.dataset.id]!=null){e.value=r['f_'+e.dataset.id];if(e.tagName==='TEXTAREA')autosize(e);}});
+ document.querySelectorAll('.seg').forEach(e=>{const v=r['s_'+e.dataset.id]||'';e.dataset.val=v;e.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.v===v));});}
+let ft;function flash(){const e=document.getElementById('saved');if(!e)return;e.style.opacity=1;clearTimeout(ft);ft=setTimeout(()=>e.style.opacity=0,1200);}
+document.addEventListener('input',e=>{if(e.target.matches('.fld')){if(e.target.tagName==='TEXTAREA')autosize(e.target);save();}});
+document.addEventListener('click',e=>{
+ const b=e.target.closest('.seg button');if(b){const seg=b.closest('.seg');seg.dataset.val=(seg.dataset.val===b.dataset.v)?'':b.dataset.v;seg.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x.dataset.v===seg.dataset.val));save();return;}
+ if(e.target.id==='printBtn')window.print();
+ if(e.target.id==='resetBtn'){if(confirm('Clear all your answers in this workbook?')){try{localStorage.removeItem(KEY);}catch(err){}location.reload();}}
+});
+restore();
+</script></body></html>

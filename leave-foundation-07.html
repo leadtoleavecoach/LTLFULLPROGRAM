@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEAVE · Master the Mindset · Workbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#0A4D2E;--copper:#C17A36;--cream:#F6F3EC;--ink:#22302a;--line:#d8d2c4;--white:#fffdf8;--lcop:#E3A766;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Montserrat',-apple-system,sans-serif;font-size:16px;line-height:1.6;}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px 70px;}
+.bar{position:sticky;top:0;z-index:10;background:var(--cream);display:flex;justify-content:flex-end;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);}
+.bar .saved{color:var(--green);font-size:.78rem;opacity:0;transition:opacity .3s;margin-right:auto;}
+.bar button{font-family:inherit;font-size:.78rem;font-weight:600;border:1px solid var(--copper);color:var(--green);background:transparent;border-radius:30px;padding:6px 16px;cursor:pointer;letter-spacing:.03em;}
+.bar #printBtn{background:var(--green);color:var(--cream);border-color:var(--green);}
+.masthead{text-align:center;padding:26px 0 4px;}
+.masthead img{max-width:140px;width:32%;height:auto;display:block;margin:0 auto;}
+.eyebrow{text-transform:uppercase;letter-spacing:.26em;color:var(--copper);font-weight:700;font-size:.66rem;margin-top:12px;}
+.title{font-family:'Playfair Display',serif;font-weight:800;color:var(--green);font-size:2.35rem;margin:6px 0 0;}
+.wbtag{text-transform:uppercase;letter-spacing:.3em;color:var(--green);font-size:.64rem;font-weight:600;margin-top:10px;border-top:2px solid var(--copper);display:inline-block;padding-top:8px;}
+h2{font-family:'Playfair Display',serif;color:var(--green);font-size:1.32rem;font-weight:700;margin:34px 0 2px;}
+.tool{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--copper);border-radius:0 10px 10px 0;padding:12px 16px;margin:14px 0 6px;font-style:italic;color:#574f3f;font-size:.95rem;}
+.instr{color:#6f6a5c;font-size:.92rem;margin:4px 0 10px;}
+input.fld{width:100%;border:none;border-bottom:2px solid var(--line);background:transparent;font-family:inherit;font-size:1rem;color:var(--ink);padding:7px 2px;}
+textarea.fld{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--white);font-family:inherit;font-size:1rem;color:var(--ink);padding:10px 12px;min-height:3em;resize:vertical;overflow:hidden;}
+.fld:focus{outline:none;border-color:var(--copper);}
+table{width:100%;border-collapse:collapse;margin:10px 0;}
+th{background:var(--green);color:var(--cream);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:9px 10px;font-weight:700;}
+td{border:1px solid var(--line);padding:5px 9px;vertical-align:middle;}
+td.sig{font-weight:700;color:var(--green);width:30%;}
+td.sig small{display:block;font-weight:500;color:#6f6a5c;font-size:.74rem;letter-spacing:0;text-transform:none;}
+td input.fld{border:none;padding:8px 2px;}
+.seg{display:inline-flex;gap:4px;flex-wrap:wrap;}
+.seg button{font-family:inherit;font-weight:700;font-size:.72rem;border:1px solid var(--line);background:var(--white);color:#6f6a5c;padding:0 11px;height:30px;border-radius:6px;cursor:pointer;}
+.seg button.active{background:var(--green);color:var(--cream);border-color:var(--green);}
+.seg.lane button[data-v="Decide"].active{background:#2E8B57;border-color:#2E8B57;}
+.seg.lane button[data-v="Tell"].active{background:#C9A227;border-color:#C9A227;}
+.seg.lane button[data-v="Ask"].active{background:#B5462F;border-color:#B5462F;}
+.rep{background:#f1ede2;border-left:5px solid var(--green);border-radius:0 10px 10px 0;padding:16px 18px;margin:26px 0 0;}
+.rep .lab{text-transform:uppercase;letter-spacing:.18em;color:var(--copper);font-weight:700;font-size:.66rem;}
+.rep p{margin:6px 0 0;}
+.foot{text-align:center;color:var(--copper);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;margin-top:42px;border-top:1px solid var(--line);padding-top:18px;}
+@media print{.bar{display:none;}body{background:#fff;}th,.seg button.active{-webkit-print-color-adjust:exact;print-color-adjust:exact;}textarea.fld{border-color:#ccc;}}
+
+/* --- Learning platform additions --- */
+.platnav{position:sticky;top:0;z-index:20;background:var(--green);display:flex;align-items:center;gap:14px;padding:10px 24px;margin:0 -24px;border-bottom:3px solid var(--copper);}
+.platnav a{color:var(--cream);text-decoration:none;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;opacity:.9;}
+.platnav a:hover{opacity:1;color:var(--lcop);}
+.platnav .hub{margin-right:auto;}
+.platnav .disabled{opacity:.35;pointer-events:none;}
+.videohero{margin:22px 0 8px;}
+.videohero .vlabel{text-transform:uppercase;letter-spacing:.22em;color:var(--copper);font-weight:700;font-size:.66rem;margin-bottom:10px;}
+.vframe{position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#0c2a1c;border:1px solid var(--line);box-shadow:0 10px 30px rgba(10,77,46,.12);}
+.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vplaceholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--cream);padding:24px;}
+.vplaceholder .play{width:70px;height:70px;border-radius:50%;border:3px solid var(--copper);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.vplaceholder .play:after{content:"";border-left:20px solid var(--copper);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:5px;}
+.vplaceholder b{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;}
+.vplaceholder small{opacity:.75;font-size:.78rem;margin-top:6px;max-width:420px;}
+.wbdivider{text-align:center;margin:34px 0 0;color:var(--copper);font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;}
+.wbdivider span{display:inline-block;border-top:2px solid var(--copper);padding-top:8px;}
+@media print{.platnav,.videohero{display:none;}}
+
+</style></head>
+<body data-key="LEAVE-F7"><div class="wrap"><div class="platnav"><a class="home2" href="index.html">&#8962; LTL Hub</a><a class="hub" href="leave-landing.html">&#9632; LEAVE Home</a><span style="color:var(--lcop);font-size:.72rem;font-weight:700;letter-spacing:.08em;">7 / 7</span><a href="leave-foundation-06.html">&larr; Prev</a><a href="leave-conclusion.html">Conclusion &rarr;</a></div>
+<div class="bar"><span class="saved" id="saved">Saved &#10003;</span><button id="printBtn">Print / Save PDF</button><button id="resetBtn">Reset</button></div>
+<div class="masthead"><img src="lead-to-leave-logo.png" alt="Lead to Leave"><div class="eyebrow">Stage 3 · LEAVE — Foundation 07</div><div class="title">Master the Mindset</div><div class="wbtag">Foundation 7</div></div><div class="videohero"><div class="vlabel">Watch first</div><div class="vframe">
+  
+  <iframe src="https://www.loom.com/embed/b0f57535f2fc4c978d711edbc7afc529" title="Master the Mindset video" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div></div><div class="wbdivider"><span>Then work the pages below</span></div>
+<div class="tool">The last work is internal. The goal was never to be <b>needed</b> — it was to be <b>missed</b>. Letting go is an identity shift: three flips — <b>Hero → Builder</b>, <b>Control → Trust</b>, <b>Present → Permanent</b>. The daily proof you've flipped is that <b>you go last</b>.</div>
+
+<h2>1 · Catch the pull</h2><p class="instr">The last time you jumped into work your team could have handled — what were you really getting from it? Name the feeling. (Needed? The one with the answer?) You can't flip what you won't admit.</p><textarea class="fld" data-id="pull"></textarea>
+<h2>2 · Find your hardest flip</h2><p class="instr">Which flip is hardest for you — and why does it have a grip?</p>
+<div class="seg " data-id="flip"><button data-v="Hero → Builder">Hero → Builder</button><button data-v="Control → Trust">Control → Trust</button><button data-v="Present → Permanent">Present → Permanent</button></div>
+<div style="height:10px"></div><textarea class="fld" data-id="flipwhy" placeholder="Why that one grips me"></textarea>
+<h2>3 · The empty-chair test</h2><p class="instr">Picture your operation running a full month without you in it. What's the first feeling — pride, or fear? The honest answer tells you how much of your identity is still tied to being needed.</p>
+<div class="seg " data-id="chair"><button data-v="Pride">Pride</button><button data-v="Fear">Fear</button><button data-v="Both">Both</button></div><div style="height:10px"></div><textarea class="fld" data-id="chairnote" placeholder="What came up"></textarea>
+<h2>4 · Pick a go-last move</h2><p class="instr">One specific way you'll go last this week — give away a win that was yours, take a task nobody wants, or let someone else have the answer in a room where you knew it.</p><input class="fld" data-id="golast">
+<h2>5 · Write the reframe</h2><p class="instr">The mindset, compressed. Put it somewhere you'll see it.</p>
+<table><thead><tr><th>My job is no longer to be the one who…</th><th>It's to build people who…</th></tr></thead><tbody>
+<tr><td><input class="fld" data-id="nolonger"></td><td><input class="fld" data-id="instead"></td></tr></tbody></table>
+<h2>Reflect</h2><p class="instr">If your team ran beautifully for a month without you, would you feel proud or threatened? That feeling is the last thing between you and the finish line.</p><textarea class="fld" data-id="ref1"></textarea>
+<p class="instr">Who are you when you're not needed?</p><textarea class="fld" data-id="ref2"></textarea>
+<div class="rep"><div class="lab">Your rep</div><p>Make your go-last move this week — give away the win, take the hard thing, let someone else have the answer. Then write down how it felt. The feeling is the work.</p><textarea class="fld" data-id="repnote" style="margin-top:10px;"></textarea></div>
+<div class="foot">Lead to Leave · Built to thrive beyond you.</div>
+</div><script>
+const KEY='ltl-wb-'+document.body.dataset.key;
+function autosize(t){t.style.height='auto';t.style.height=(t.scrollHeight+2)+'px';}
+function collect(){const s={};
+ document.querySelectorAll('input.fld,textarea.fld').forEach(e=>s['f_'+e.dataset.id]=e.value);
+ document.querySelectorAll('.seg').forEach(e=>s['s_'+e.dataset.id]=e.dataset.val||'');
+ return s;}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(collect()));}catch(e){}flash();}
+function restore(){let r={};try{r=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+ document.querySelectorAll('input.fld,textarea.fld').forEach(e=>{if(r['f_'+e.dataset.id]!=null){e.value=r['f_'+e.dataset.id];if(e.tagName==='TEXTAREA')autosize(e);}});
+ document.querySelectorAll('.seg').forEach(e=>{const v=r['s_'+e.dataset.id]||'';e.dataset.val=v;e.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.v===v));});}
+let ft;function flash(){const e=document.getElementById('saved');if(!e)return;e.style.opacity=1;clearTimeout(ft);ft=setTimeout(()=>e.style.opacity=0,1200);}
+document.addEventListener('input',e=>{if(e.target.matches('.fld')){if(e.target.tagName==='TEXTAREA')autosize(e.target);save();}});
+document.addEventListener('click',e=>{
+ const b=e.target.closest('.seg button');if(b){const seg=b.closest('.seg');seg.dataset.val=(seg.dataset.val===b.dataset.v)?'':b.dataset.v;seg.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x.dataset.v===seg.dataset.val));save();return;}
+ if(e.target.id==='printBtn')window.print();
+ if(e.target.id==='resetBtn'){if(confirm('Clear all your answers in this workbook?')){try{localStorage.removeItem(KEY);}catch(err){}location.reload();}}
+});
+restore();
+</script></body></html>
